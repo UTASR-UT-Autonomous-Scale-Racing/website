@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules - don't track dependencies
+node_modules/
+
+# Build output - don't track the build artifacts
+dist
+dist-ssr
+
+# Vite specific - temporary files generated during development
+.vite/
+
+# Optional: Ignore any other unnecessary files
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Operating system specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor specific files (if you're using VSCode or similar)
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Optional: Ignore any other unnecessary files
+/assets/          # If you don't want to track images or other static files in the assets folder
