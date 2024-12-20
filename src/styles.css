@@ -1,0 +1,7 @@
+/* styles.css - example for utility classes or specific components */
+
+.center-text {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
