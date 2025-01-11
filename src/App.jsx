@@ -1,13 +1,20 @@
-import React from 'react';
-import './App.css'; // CSS Import
+import React from "react";
+
+// Importation from ./pages
+// Example: import {HomePage, AboutPage, EventPage, ...} from './pages'
+
+import { HomePage } from "./pages";
 
 function App() {
   return (
-    <div className="gradient-background">
-      <div className="content">
-        <h1>UTASR</h1>
-      </div>
-    </div>
+    // <div className="gradient-background">
+    //   <div className="content">
+    //     <h1>UTASR</h1>
+    //   </div>
+    // </div>
+    <>
+      <HomePage />
+    </>
   );
 }
 
