@@ -1,20 +1,11 @@
-import React from "react";
+import React from 'react';
+import HomePage from './pages/HomePage';
 
-// Importation from ./pages
-// Example: import {HomePage, AboutPage, EventPage, ...} from './pages'
-
-import { HomePage } from "./pages";
-
-function App() {
+const App = () => {
   return (
-    // <div className="gradient-background">
-    //   <div className="content">
-    //     <h1>UTASR</h1>
-    //   </div>
-    // </div>
-    <>
+    <div>
       <HomePage />
-    </>
+    </div>
   );
 }
 
