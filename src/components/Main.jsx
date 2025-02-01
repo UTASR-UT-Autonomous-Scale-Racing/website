@@ -10,12 +10,15 @@ export const Main = () => {
       <Box
        sx={{ 
         display: 'flex', 
-        flexDirection: 'row',  
+        flexDirection: {
+          md :'row',
+          xs: "column"
+      },  
         justifyContent: 'space-between', 
         alignItems: 'center',
         minHeight: '750px',
         width: '100%',
-        px:10,
+        p: 10
         }}
         >
            {/* Text Container */}
