@@ -8,7 +8,7 @@ export default function SimpleContainer({ children, bgColor }) {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth={false} disableGutters>
-        <Box sx={{ bgcolor: bgColor, width: '100%', minHeight: '100vh' }}>
+        <Box sx={{ bgcolor: bgColor, width: '100%' }}>
           {children} 
         </Box>
       </Container>

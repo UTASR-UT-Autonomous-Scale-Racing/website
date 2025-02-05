@@ -54,7 +54,9 @@ export const Header = () => {
         >
           <Typography variant="h2" component="h1" sx={{ fontWeight: 'bold' }}>
             University of Toronto <br/>
-            Autonumous Scale Racing
+            Autonomous Scale Racing <br />
+            
+
           </Typography>
         </Box>
       </Box>
