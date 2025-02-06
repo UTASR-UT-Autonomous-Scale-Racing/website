@@ -2,38 +2,23 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import logo from '../assets/logo.png'
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import logo from '../assets/logo.png';
 
 const pages = ['Instagram', 'Discord'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Footer() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
@@ -112,12 +97,17 @@ function Footer() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            By Arsen, Mohammed, etc.
-          </Box>
+          <Box sx={{ flexGrow: 0 }}>By Arsen, Mohammed, etc.</Box>
         </Toolbar>
       </Container>
+      <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
+        <Box sx={{ width: '70%', height: '1px', bgcolor: 'gray', opacity: 0.5 }}></Box>
+      </Box>
+      <Box sx={{ textAlign: 'center', my: 2, py: 1, bgcolor: 'black', color: 'white', fontSize: '0.875rem' }}>
+        Copyright © 2025 University of Toronto Autonomous Scale Racing
+      </Box>
     </AppBar>
   );
 }
+
 export default Footer;

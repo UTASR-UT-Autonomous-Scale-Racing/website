@@ -4,9 +4,7 @@ import { Card, CardContent, CardActions, Button, Typography } from '@mui/materia
 
 export const Events = () => {
   const events = [
-    { title: 'Event 1', place: 'Place 1', date: 'Date 1', desc: 'Description 1' },
-    { title: 'Event 2', place: 'Place 2', date: 'Date 2', desc: 'Description 2' },
-    { title: 'Event 3', place: 'Place 3', date: 'Date 3', desc: 'Description 3' },
+    { title: 'Coming Soon', place: '', date: '', desc: 'Stay tuned for upcoming events!' },
   ];
 
   const [currentIndex, setCurrentIndex] = React.useState(0);

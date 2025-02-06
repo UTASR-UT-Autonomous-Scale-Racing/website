@@ -162,7 +162,9 @@ function ResponsiveAppBar() {
                     key={page}
                     onClick={() => handleMenuItemClick(page)} // Handle click to scroll
                   >
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography textAlign="center" sx={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+                      {page}
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>

@@ -191,11 +191,11 @@ export default function Carousel() {
             flexShrink: 0,
           },
           "::-webkit-scrollbar": { display: "none" },
-          background: "rgb(2,0,36)",
-background: "-moz-linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(22,46,124,1) 62%, rgba(82,118,240,1) 100%)",
-background:"-webkit-linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(22,46,124,1) 62%, rgba(82,118,240,1) 100%)",
-background: "linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(22,46,124,1) 62%, rgba(82,118,240,1) 100%)",
-filter: `progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#5276f0",GradientType=1)`,
+          //background: "rgb(2,0,36)",
+          //background: "-moz-linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(22,46,124,1) 62%, rgba(82,118,240,1) 100%)",
+          //background:"-webkit-linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(22,46,124,1) 62%, rgba(82,118,240,1) 100%)",
+          background: "linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(22,46,124,1) 62%, rgba(82,118,240,1) 100%)",
+          filter: `progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#5276f0",GradientType=1)`,
         }}
       >
         {pages}
