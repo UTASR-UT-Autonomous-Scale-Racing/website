@@ -39,24 +39,27 @@ export const Header = () => {
             color: 'white', 
             textAlign: 'start',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'start',
+            flexDirection: 'column',
+            alignItems: 'start',
+            justifyContent: 'center', // Center vertically
             height: '100%',
             width: '100%',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)', // Text shadow for aesthetics
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
             fontSize: { xs: 24, md: "60px" },
+            ml: { xs: 3, sm: 5, md: 10 }, // Left margin increases with screen size
             p: {
-              xs:3,
+              xs: 3,
               sm: 5,
               md: 10
             }
           }}
         >
+
+
+          <img src={'svg/White logo - no background.svg'} alt="UTASR" style={{ height: '150px', marginBottom: '16px' }} />
           <Typography variant="h2" component="h1" sx={{ fontWeight: 'bold' }}>
             University of Toronto <br/>
             Autonomous Scale Racing <br />
-            
-
           </Typography>
         </Box>
       </Box>
