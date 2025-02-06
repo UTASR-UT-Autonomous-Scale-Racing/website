@@ -12,7 +12,6 @@ import {
   useScrollTrigger
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import logo from '../assets/logo.png';
 
 function ScrollHandler(props) {
   const { children } = props;
@@ -82,51 +81,17 @@ function ResponsiveAppBar() {
             {/* Logo and Brand - Desktop */}
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <img
-                src={logo}
-                alt="Logo"
+                src={'svg/White logo - no background.svg'}
+                alt="UTASR"
                 style={{
-                  height: '64px',
-                  width: '40px',
+                  height: 'auto',
+                  width: '150px',
                   marginRight: '8px',
                   objectFit: 'contain'
                 }}
               />
-              <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 2,
-                  display: { xs: 'none', md: 'flex' },
-                  fontWeight: 700,
-                  letterSpacing: '.3rem',
-                  color: 'inherit',
-                  textDecoration: 'none',
-                }}
-              >
-                UTASR
-              </Typography>
             </Box>
 
-            {/* Brand - Mobile */}
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              UTASR
-            </Typography>
-            
             {/* Mobile Navigation */}
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
               <IconButton
