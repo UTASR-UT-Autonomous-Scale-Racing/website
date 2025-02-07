@@ -7,7 +7,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import logo from '../assets/logo.png';
 
 const pages = ['Instagram', 'Discord'];
 
@@ -25,24 +24,7 @@ function Footer() {
     <AppBar position="static" sx={{ top: 'auto', bottom: 0, width: '100%', bgcolor: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={logo} alt='Logo' style={{ height: '80px', width: '80px', marginRight: '8px' }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            UTASR © 2025
-          </Typography>
+          <img src={'svg/White logo - no background.svg'} alt='UTASR' style={{ height: '80px', width: '80px', marginRight: '8px' }} />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <Menu
@@ -68,24 +50,7 @@ function Footer() {
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            UTASR
-          </Typography>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -97,7 +62,12 @@ function Footer() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>By Arsen, Mohammed, etc.</Box>
+          <Box sx={{ flexGrow: 0 }}>
+            By{' '}
+            <a href="https://github.com/UTASR-UT-Autonomous-Scale-Racing/website" style={{ color: 'white', textDecoration: 'none' }}>
+               UTASR Web Dev. Team
+            </a>
+          </Box>
         </Toolbar>
       </Container>
       <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
