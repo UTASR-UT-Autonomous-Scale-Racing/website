@@ -12,6 +12,7 @@ Official website repo of UTARS (University of Toronto Autonomous Scale Racing)
 1. `npm install`
 2. `npm install @mui/material @emotion/react @emotion/styled`
 3. `npm install @mui/joy @emotion/react @emotion/styled`
+4. `npm install framer-motion`
 
 ## Run
 
