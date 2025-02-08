@@ -9,7 +9,7 @@ export const Header = () => {
       <Box
         sx={{
           width: '100%',
-          height: '100vh',
+          height: '93vh',
           position: 'relative',
           background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(22,46,124,1) 62%, rgba(82,118,240,1) 100%)",
           backgroundSize: 'cover',
