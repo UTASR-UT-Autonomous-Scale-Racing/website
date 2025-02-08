@@ -84,7 +84,7 @@ function ResponsiveAppBar() {
                 src={'svg/White logo - no background.svg'}
                 alt="UTASR"
                 style={{
-                  height: 'auto',
+                  height: '64px',
                   width: '150px',
                   marginRight: '8px',
                   objectFit: 'contain'

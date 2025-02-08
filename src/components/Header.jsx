@@ -15,6 +15,7 @@ export const Header = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          overflow: 'hidden',
           '&::before': {
             content: '""', 
             position: 'absolute', 
