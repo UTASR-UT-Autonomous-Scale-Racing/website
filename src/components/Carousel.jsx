@@ -196,7 +196,7 @@ const ExpandedImageModal = React.memo(({ expandedImage, onClose }) => (
           justifyContent: 'center',
           zIndex: 1000,
           cursor: 'pointer',
-          padding: '64px'
+          padding: window.innerWidth < 768 ? "20px" : "64px",
         }}
         onClick={onClose}
       >
@@ -210,8 +210,8 @@ const ExpandedImageModal = React.memo(({ expandedImage, onClose }) => (
           animate={{
             x: 0,
             y: 0,
-            width: 'auto',
-            height: '70vh',
+            width: window.innerWidth < 768 ? "100%" : "auto",
+            height:  window.innerWidth < 768 ? "auto" : "70vh",
             transition: {
               type: "spring",
               stiffness: 300,
