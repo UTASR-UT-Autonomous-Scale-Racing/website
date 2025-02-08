@@ -36,7 +36,7 @@ export const Header = () => {
         <Box
           sx={{
             position: 'absolute', // Make the box absolute to position it relative to the viewport
-            bottom: { xs: '300px', sm: '25px' }, // Set bottom to 300px for mobile, 25px for larger screens
+            bottom: { xs: '300px', sm: '80px' }, // Set bottom to 300px for mobile, 25px for larger screens
             right: 0, // Keep it anchored to the left
             zIndex: 2, 
             color: 'white', 
@@ -69,7 +69,15 @@ export const Header = () => {
         />
         
         {/* Typography next to the image */}
-        <Typography variant="h2" component="h1" sx={{ fontWeight: 'bold', ml: 1 }}>
+        <Typography 
+          variant="h2" 
+          component="h1" 
+          sx={{ 
+            fontWeight: 'bold', 
+            ml: 1,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem', lg: '3rem' } // Adjust font size based on screen size
+          }}
+        >
           University of Toronto <br />
           Autonomous Scale Racing <br />
         </Typography>
