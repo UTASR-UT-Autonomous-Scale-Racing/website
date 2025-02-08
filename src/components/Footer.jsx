@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 
-const pages = ['Instagram', 'Discord'];
+const pages = ['Instagram', 'Discord', 'info@utasr.ca'];
 
 function Footer() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -26,6 +26,7 @@ function Footer() {
         <Toolbar disableGutters>
           <img src={'svg/White logo - no background.svg'} alt='UTASR' style={{ height: '80px', width: '80px', marginRight: '80px' }} />
 
+          {/* Mobile View Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <Menu
               id="menu-appbar"
@@ -50,7 +51,8 @@ function Footer() {
               ))}
             </Menu>
           </Box>
-          
+
+          {/* Desktop View Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -70,6 +72,20 @@ function Footer() {
           </Box>
         </Toolbar>
       </Container>
+      
+      {/* Special Mobile View - Move Instagram & Discord links above dividing line */}
+      <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', gap: 1, my: 1 }}>
+        {pages.map((page) => (
+          <Button
+          key={page}
+          onClick={handleCloseNavMenu}
+          sx={{ my: 2, color: 'white', display: 'block' }}
+        >
+          {page}
+        </Button>
+        ))}
+      </Box>
+
       <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
         <Box sx={{ width: '70%', height: '1px', bgcolor: 'gray', opacity: 0.5 }}></Box>
       </Box>
