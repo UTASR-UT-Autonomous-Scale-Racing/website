@@ -24,7 +24,7 @@ function Footer() {
     <AppBar position="static" sx={{ top: 'auto', bottom: 0, width: '100%', bgcolor: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={'svg/White logo - no background.svg'} alt='UTASR' style={{ height: '80px', width: '80px', marginRight: '8px' }} />
+          <img src={'svg/White logo - no background.svg'} alt='UTASR' style={{ height: '80px', width: '80px', marginRight: '80px' }} />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <Menu
