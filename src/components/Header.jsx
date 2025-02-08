@@ -35,16 +35,17 @@ export const Header = () => {
       >
         <Box
           sx={{
-            position: 'relative', 
+            position: 'absolute', // Make the box absolute to position it relative to the viewport
+            bottom: { xs: '300px', sm: '80px' }, // Set bottom to 300px for mobile, 25px for larger screens
+            right: 0, // Keep it anchored to the left
             zIndex: 2, 
             color: 'white', 
             textAlign: 'start',
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'start',
-            justifyContent: 'center', // Center vertically
-            height: '100%',
-            width: '100%',
+            flexDirection: 'row', // Arrange items side by side
+            alignItems: 'center', // Align vertically centered
+            justifyContent: 'flex-end', // Align to the left
+            width: '100%', // Ensure the box spans the full width
             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
             fontSize: { xs: 24, md: "60px" },
             ml: { xs: 3, sm: 5, md: 10 }, // Left margin increases with screen size
@@ -57,12 +58,31 @@ export const Header = () => {
         >
 
 
-          <img src={'svg/White logo - no background.svg'} alt="UTASR" style={{ height: '150px', marginBottom: '16px' }} />
-          <Typography variant="h2" component="h1" sx={{ fontWeight: 'bold' }}>
-            University of Toronto <br/>
-            Autonomous Scale Racing <br />
-          </Typography>
-        </Box>
+        {/* Image with cropped right half */}
+        <img 
+          src={'svg/White logo - no background-cropped.svg'} 
+          alt="UTASR Emblem" 
+          style={{
+            height: '150px', 
+            marginBottom: '16px', 
+          }} 
+        />
+        
+        {/* Typography next to the image */}
+        <Typography 
+          variant="h2" 
+          component="h1" 
+          sx={{ 
+            fontWeight: 'bold', 
+            ml: 1,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem', lg: '3rem' } // Adjust font size based on screen size
+          }}
+        >
+          University of Toronto <br />
+          Autonomous Scale Racing <br />
+        </Typography>
+      </Box>
+
       </Box>
     </SimpleContainer>
   );
