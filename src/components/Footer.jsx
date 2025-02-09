@@ -24,7 +24,7 @@ function Footer() {
     <AppBar position="static" sx={{ top: 'auto', bottom: 0, width: '100%', bgcolor: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={'svg/White logo - no background.svg'} alt='UTASR' style={{ height: '80px', width: '80px', marginRight: '80px' }} />
+          <img src={'svg/White logo - no background.svg'} alt='UTASR' style={{ height: '80px', width: '80px', marginRight: '8PX' }} />
 
           {/* Mobile View Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -89,7 +89,8 @@ function Footer() {
       <Box sx={{ display: 'flex', justifyContent: 'center', my: 2 }}>
         <Box sx={{ width: '70%', height: '1px', bgcolor: 'gray', opacity: 0.5 }}></Box>
       </Box>
-      <Box sx={{ textAlign: 'center', my: 2, py: 1, bgcolor: 'black', color: 'white', fontSize: '0.875rem' }}>
+      <Box sx={{ textAlign: 'center', my: 2, py: 1, px: 3,
+            mb: 4, bgcolor: 'black', color: 'white', fontSize: '0.875rem' }}>
         Copyright © 2025 University of Toronto Autonomous Scale Racing
       </Box>
     </AppBar>

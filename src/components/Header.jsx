@@ -36,7 +36,7 @@ export const Header = () => {
         <Box
           sx={{
             position: 'absolute', // Make the box absolute to position it relative to the viewport
-            bottom: { xs: '300px', sm: '80px' }, // Set bottom to 300px for mobile, 25px for larger screens
+            bottom: { xs: '300px', sm: '25px' }, // Set bottom to 300px for mobile, 25px for larger screens
             right: 0, // Keep it anchored to the left
             zIndex: 2, 
             color: 'white', 

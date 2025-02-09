@@ -29,7 +29,9 @@ export const JoinUs = () => {
             color: 'rgb(80, 80, 80)', 
             maxWidth: '700px', 
             mx: 'auto', 
-            lineHeight: 1.6 
+            lineHeight: 1.6,
+            px: 3,
+            mb: 4
           }}
         >
           Become part of UTASR and contribute to the future of autonomous technology. 
@@ -45,7 +47,9 @@ export const JoinUs = () => {
             color: 'rgb(80, 80, 80)', 
             maxWidth: '700px', 
             mx: 'auto', 
-            mt: 2 
+            mt: 2,
+            px: 3,
+            mb: 4 
           }}
         >
           Have questions? Reach out to us at  
@@ -55,7 +59,7 @@ export const JoinUs = () => {
               color: 'rgb(54, 54, 54)', 
               fontWeight: 'bold', 
               marginLeft: '5px',
-              '&:hover': { color: 'rgb(30, 30, 30)' } 
+              '&:hover': { color: 'rgb(30, 30, 30)' }
             }}
           >
             info@utasr.ca
@@ -70,7 +74,9 @@ export const JoinUs = () => {
             color: 'rgb(80, 80, 80)', 
             maxWidth: '700px', 
             mx: 'auto', 
-            mt: 3 
+            mt: 3,
+            px: 3,
+            mb: 4 
           }}
         >
           Connect with us and stay updated by joining our community on Discord!
