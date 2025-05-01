@@ -3,14 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/Favicons/browser.png" />
-    <meta name="viewport" content="width=device-wid
-    th, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Favicons/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>UTASR | University of Toronto Autonomous Scale Racing Team</title>
+    <meta name="description" content="Discover UTASR, the University of Toronto's Autonomous Scale Racing team. Explore our divisions, meet the team, and learn about our AI and robotics projects." />
+    <meta name="keywords" content="UTASR, University of Toronto, Autonomous Scale Racing, RC car, robotics, AI, engineering, student team, deep learning, computer vision, Toronto, UofT" />
+    <meta name="author" content="UTASR Web Dev Team" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="UTASR | University of Toronto Autonomous Scale Racing Team" />
+    <meta property="og:description" content="Discover UTASR, the University of Toronto's Autonomous Scale Racing team. Explore our divisions, meet the team, and learn about our AI and robotics projects." />
+    <meta property="og:image" content="https://utasr-ut-autonomous-scale-racing.github.io/Favicons/browser.png" />
+    <meta property="og:url" content="https://utasr-ut-autonomous-scale-racing.github.io/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UTASR | University of Toronto Autonomous Scale Racing Team" />
+    <meta name="twitter:description" content="Discover UTASR, the University of Toronto's Autonomous Scale Racing team. Explore our divisions, meet the team, and learn about our AI and robotics projects." />
+    <meta name="twitter:image" content="https://utasr-ut-autonomous-scale-racing.github.io/Favicons/browser.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://utasr-ut-autonomous-scale-racing.github.io/" />
+
+    <!-- 301 Redirect for www/non-www (client-side fallback) -->
+    <script>
+      if (location.hostname === "utasr-ut-autonomous-scale-racing.github.io" || location.hostname === "www.utasr-ut-autonomous-scale-racing.github.io") {
+        // No redirect needed, both are valid
+      } else if (location.hostname.startsWith("www.")) {
+        window.location.replace(location.protocol + "//utasr-ut-autonomous-scale-racing.github.io" + location.pathname + location.search + location.hash);
+      } else if (location.hostname === "utasr-ut-autonomous-scale-racing.github.io") {
+        // Already non-www
+      }
+    </script>
+
     <link href="./src/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>UTASR - University of Toronto Autonomous Scale Racing</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <noscript>
+        <section style="max-width:700px;margin:3rem auto;padding:2rem;background:#2d48a6;color:#fff;border-radius:1.5rem;font-family:'Poppins',sans-serif;box-shadow:0 8px 32px 0 rgba(0,0,0,0.15);">
+          <h1 style="font-size:2.2rem;font-weight:700;margin-bottom:1rem;text-align:center;">
+            Welcome to UTASR – University of Toronto Autonomous Scale Racing Team
+          </h1>
+          <p style="font-size:1.1rem;line-height:1.7;margin-bottom:1.5rem;">
+            UTASR is the University of Toronto's Autonomous Scale Racing team. We are a passionate group of students and engineers dedicated to advancing the field of robotics and artificial intelligence through the exciting world of autonomous RC car racing. Our team designs, builds, and programs 1/10th scale autonomous vehicles to compete in international competitions, pushing the boundaries of computer vision, deep learning, and real-time control systems.
+          </p>
+          <p style="font-size:1.1rem;line-height:1.7;margin-bottom:1.5rem;">
+            Our team is divided into two main divisions: the <strong>Software Team</strong>, which focuses on AI-driven control, perception, and path planning, and the <strong>Hardware Team</strong>, which develops high-performance vehicle systems, sensor integration, and embedded electronics. Together, we foster a collaborative environment where innovation, learning, and teamwork drive our success.
+          </p>
+          <p style="font-size:1.1rem;line-height:1.7;margin-bottom:1.5rem;">
+            Whether you are a student interested in robotics, a sponsor looking to support cutting-edge research, or simply curious about autonomous vehicles, we invite you to explore our website. Learn more <a href="/about" style="color:#ffd700;">about us</a>, discover our <a href="/divisions" style="color:#ffd700;">divisions</a>, or <a href="/contact" style="color:#ffd700;">get in touch</a> to join our journey!
+          </p>
+          <p style="font-size:1.1rem;line-height:1.7;">
+            UTASR is proud to represent the University of Toronto in the global autonomous racing community. We are always seeking new members and partners who share our vision for the future of intelligent vehicles.
+          </p>
+        </section>
+      </noscript>
+      <!-- React app will render here -->
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
