@@ -1,9 +1,37 @@
 /* ---------- Base reset ---------- */
 /* keep your reset but remove hard-coded body font family */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; background-color: #020024; }
-body { min-height: 100vh; background-color: #0b1024; overflow-x: hidden; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
+/* Fix white space issues - ensure dark background everywhere */
+html { 
+    scroll-behavior: smooth; 
+    background-color: #020024; /* Dark blue background */
+    min-height: 100%;
+}
+
+body { 
+    min-height: 100vh; 
+    background-color: #0b1024; /* Slightly lighter dark blue */
+    overflow-x: hidden; 
+    /* Ensure body extends full height */
+    position: relative;
+}
+
+/* Fix for React root container */
+#root {
+    min-height: 100vh;
+    background-color: #0b1024;
+    position: relative;
+}
+
+/* Ensure main content container has dark background */
+main, .MuiContainer-root {
+    background-color: transparent; /* Let parent background show through */
+}
 
 /* Make anchor jumps land below the fixed AppBar */
 :root {
@@ -28,7 +56,7 @@ html {
 
 .gradient-animated {
   background-size: 300% 300%;
-  animation: gradientShift 8s ease-in-out infinite;
+  animation: gradientShift 10s ease-in-out infinite;
   will-change: background-position;
 }
 
@@ -38,9 +66,9 @@ html {
     radial-gradient(80rem 40rem at 90% -10%, rgba(255, 255, 255, 0.06), transparent 40%),
     linear-gradient(
       135deg,
-        #183490 0%,   /* dark royal/navy */
+        #1e40af 0%,   /* dark royal/navy */
       #182e6a 40%,  /* deeper indigo/royal */
-      #05070c 100%  /* deep navy (almost black) */
+      #000 100%  /* deep navy (almost black) */
     );
   background-position: 0% 50%;
   color: #fff;
@@ -59,4 +87,16 @@ html {
 .hover-lift:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Fix iOS overscroll bounce showing white */
+@supports (-webkit-overflow-scrolling: touch) {
+    html {
+        background: #020024;
+        background-attachment: fixed;
+    }
+    body {
+        background: #0b1024;
+        background-attachment: fixed;
+    }
 }
