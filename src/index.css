@@ -28,7 +28,7 @@ html {
 
 .gradient-animated {
   background-size: 300% 300%;
-  animation: gradientShift 15s ease-in-out infinite;
+  animation: gradientShift 8s ease-in-out infinite;
   will-change: background-position;
 }
 

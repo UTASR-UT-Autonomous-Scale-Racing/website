@@ -51,7 +51,7 @@ function ScrollHandler(props) {
   });
 }
 
-const pages = ['Main', 'About Us', 'Events', 'Gallery', 'Sponsors', 'Join Us'];
+const pages = ['Main', 'About Us', 'Gallery', 'Sponsors', 'Join Us'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -6,16 +6,39 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
-import dummy from '../assets/car_1.jpg'
-import dummy2 from '../assets/groupImage_mega.jpg'
-import dummy3 from '../assets/groupImage_mini_2.jpg'
-import dummy4 from '../assets/groupImage_mini_1.jpg'
+// Cars
+import car1 from '../assets/car_1.jpg';
 
+import car2 from '../assets/car2.jpg';
+import car3 from '../assets/car3.jpg';
+import car4 from '../assets/car4.jpg';
+import car5 from '../assets/hero1.jpg'
+// Groups
+import group1 from '../assets/group1.jpg';
+import group2 from '../assets/group2.jpg';
+
+// “gw” set
+import gw1 from '../assets/gw1.jpg';
+import gw2 from '../assets/gw2.jpg';
+import gw3 from '../assets/gw3.jpg';
+import gw4 from '../assets/gw4.jpg';
+import gw5 from '../assets/gw5.jpg';
+
+// “w” set
+import w from '../assets/w.jpg';
+import w2 from '../assets/w2.jpg';
+
+// The IMG file
+import img0062 from '../assets/IMG_0062.jpg';
+
+// Build the carousel list
 const IMAGES = [
-  dummy,
-  dummy2,
-  dummy3,
-  dummy4];
+  car1, car2, car3, car4, car5,
+  group1, group2,
+  gw1, gw2, gw3, gw4, gw5,
+  w, w2,
+  img0062,
+];
 
 export default function GalleryCarousel() {
   const autoplay = React.useRef(
@@ -47,9 +70,18 @@ export default function GalleryCarousel() {
   }, [emblaApi]);
 
   return (
-    <Box component="section" id="gallery" sx={{ bgcolor: '#fff', color: '#0f172a', py: { xs: 8, md: 10 } }}>
-      {/* Header */}
-      <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
+  <Box
+    component="section"
+    id="gallery"
+    sx={{
+      bgcolor: '#fff',
+      color: '#0f172a',
+      pt: { xs: 3, md: 4 },   
+      pb: { xs: 8, md: 10 },   
+    }}
+  >   
+   {/* Header */}
+      <Box sx={{ textAlign: 'center', mb: { xs: 3, md: 4 } }}>
         <Typography variant="overline" sx={{ letterSpacing: '0.15em', opacity: 0.6 }}>
           Gallery
         </Typography>

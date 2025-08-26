@@ -1,6 +1,6 @@
 import React from 'react';
 import SimpleContainer from './SimpleContainer';
-import car from '../assets/dummycar.jpg';
+import car from '../assets/hero2.jpg';
 import { Box, Typography, Button, Stack, Link } from '@mui/material';
 
 export const Main = () => {

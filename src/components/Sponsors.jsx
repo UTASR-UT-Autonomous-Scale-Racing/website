@@ -7,10 +7,11 @@ import Grid2 from '@mui/material/Grid2';
 import affiliate1 from '../assets/skule_crest.png';
 import affiliate2 from '../assets/CSC.png';
 import affiliate3 from '../assets/skule-logo-white.svg';
+import affiliate4 from '../assets/Magna-Logo-CYMK-HR-V1.0-removebg-preview.png'
 import GradientSection from './GradientSection';
 
 export const Sponsors = () => {
-  const sponsorImages = [affiliate1, affiliate2, affiliate3];
+  const sponsorImages = [affiliate1, affiliate2, affiliate3, affiliate4];
 
   return (
     <GradientSection id="sponsors"
