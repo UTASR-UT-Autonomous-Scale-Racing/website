@@ -100,7 +100,7 @@ export default function GalleryCarousel() {
      // full-bleed without 100vw (avoids scrollbar-width overflow)
      ml: 'calc(50% - 50dvw)',
      mr: 'calc(50% - 50dvw)',
-     overflowX: 'clip',  // clip any accidental 1–2px bleed
+     overflowX: 'hidden',  // clip any accidental 1–2px bleed
    }}
 >        {/* Arrows pushed just outside the viewport gutter */}
         <IconButton
