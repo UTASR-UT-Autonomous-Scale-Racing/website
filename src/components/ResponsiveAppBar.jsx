@@ -15,12 +15,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 function ScrollHandler(props) {
   const { children } = props;
-  const [prevScrollPos, setPrevScrollPos] = React.useState(window.pageYOffset);
+  const [prevScrollPos, setPrevScrollPos] = React.useState(
+    typeof window !== 'undefined' ? window.pageYOffset : 0
+  );
   const [visible, setVisible] = React.useState(true);
 
-  const trigger = useScrollTrigger({
+  // true when NOT at the very top
+  const scrolled = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 0
+    threshold: 0,
   });
 
   const handleScroll = React.useCallback(() => {
@@ -29,25 +32,40 @@ function ScrollHandler(props) {
 
     setPrevScrollPos(currentScrollPos);
 
-    if (isScrollingDown && visible) {
-      setVisible(false);
-    } else if (!isScrollingDown && !visible) {
-      setVisible(true);
-    }
+    if (isScrollingDown && visible) setVisible(false);
+    else if (!isScrollingDown && !visible) setVisible(true);
   }, [prevScrollPos, visible]);
 
   React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
+  // Frosted glass styles when scrolled
+  const glassSx = scrolled
+    ? {
+        background: 'rgba(2,0,36,0.55)',
+        backdropFilter: 'saturate(140%) blur(10px)',
+        WebkitBackdropFilter: 'saturate(140%) blur(10px)',
+        borderBottom: '1px solid rgba(255,255,255,0.10)',
+        boxShadow:
+          '0px 2px 6px rgba(0,0,0,0.18), 0px 8px 24px rgba(0,0,0,0.15)',
+      }
+    : {
+        background: 'transparent',
+        boxShadow: 'none',
+        borderBottom: '1px solid transparent',
+      };
+
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-    style: {
-      transition: 'transform 0.2s, box-shadow 0.2s',
+    elevation: 0, // we control shadow via sx above
+    sx: {
+      ...(children.props.sx || {}),
+      ...glassSx,
+      transition: 'transform .2s, box-shadow .25s, background .25s, border-color .25s',
       transform: visible ? 'translateY(0)' : 'translateY(-100%)',
-      boxShadow: trigger ? '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)' : 'none'
-    }
+      color: '#fff',
+    },
   });
 }
 
@@ -56,43 +74,39 @@ const pages = ['Main', 'About Us', 'Gallery', 'Sponsors', 'Join Us'];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
+  const handleCloseNavMenu = () => setAnchorElNav(null);
 
   const handleMenuItemClick = (page) => {
-    handleCloseNavMenu(); // Close the menu
+    handleCloseNavMenu();
     const sectionId = `#${page.toLowerCase().replace(' ', '-')}`;
     const sectionElement = document.querySelector(sectionId);
-    if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
-    }
+    if (sectionElement) sectionElement.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <ScrollHandler>
       <AppBar
         position="fixed"
-        sx={(theme) => ({
-          background: 'rgba(2, 0, 36, 0.6)',   // translucent brand blue
-          backdropFilter: 'saturate(120%) blur(8px)',
-          WebkitBackdropFilter: 'saturate(120%) blur(8px)',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
-          transition: 'background .2s ease, transform .2s ease',
-        })}
+        sx={{
+          // start transparent; ScrollHandler will swap to glass on scroll
+          background: 'transparent',
+          boxShadow: 'none',
+        }}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ justifyContent: 'space-between', minHeight: '64px' }}>
+          <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
             {/* Logo */}
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <img
                 src={'svg/White logo - no background.svg'}
                 alt="UTASR"
-                style={{ height: 48, width: 140, objectFit: 'contain' }}
+                style={{
+                  height: '64px',
+                  width: '150px',
+                  marginRight: '8px',
+                  objectFit: 'contain',
+                }}
               />
             </Box>
 
@@ -111,27 +125,16 @@ function ResponsiveAppBar() {
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                 keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
+                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
+                sx={{ display: { xs: 'block', md: 'none' } }}
               >
                 {pages.map((page) => (
-                  <MenuItem
-                    key={page}
-                    onClick={() => handleMenuItemClick(page)} // Handle click to scroll
-                  >
-                    <Typography textAlign="center" sx={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+                  <MenuItem key={page} onClick={() => handleMenuItemClick(page)}>
+                    <Typography textAlign="center" sx={{ fontSize: '1.1rem', fontWeight: 600 }}>
                       {page}
                     </Typography>
                   </MenuItem>
@@ -140,41 +143,22 @@ function ResponsiveAppBar() {
             </Box>
 
             {/* Desktop Navigation */}
-              {/* Desktop Navigation */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5 }}>
-              {pages.map((page) => {
-                const href = `#${page.toLowerCase().replace(' ', '-')}`;
-                return (
-                  <Button
-                    key={page}
-                    href={href}
-                    onClick={handleCloseNavMenu}
-                    disableRipple
-                    sx={{
-                      color: 'white',
-                      textTransform: 'none',
-                      fontWeight: 500,
-                      px: 1.5,
-                      '&:hover': { backgroundColor: 'rgba(255,255,255,0.10)' },
-                      // active underline when link is the current hash
-                      ...(typeof window !== 'undefined' && window.location.hash === href
-                        ? {
-                            '&::after': {
-                              content: '""',
-                              display: 'block',
-                              height: 2,
-                              mt: 0.5,
-                              borderRadius: 1,
-                              background: 'linear-gradient(90deg,#6ea8fe, #b4c6ff)',
-                            },
-                          }
-                        : {}),
-                    }}
-                  >
-                    {page}
-                  </Button>
-                );
-              })}
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  href={`#${page.toLowerCase().replace(' ', '-')}`}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    color: 'white',
+                    textTransform: 'none',
+                    px: 1.5,
+                    '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)' },
+                  }}
+                >
+                  {page}
+                </Button>
+              ))}
             </Box>
           </Toolbar>
         </Container>
