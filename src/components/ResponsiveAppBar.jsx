@@ -12,63 +12,74 @@ import {
   useScrollTrigger
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-
-function ScrollHandler(props) {
-  const { children } = props;
-  const [prevScrollPos, setPrevScrollPos] = React.useState(
-    typeof window !== 'undefined' ? window.pageYOffset : 0
-  );
+function ScrollHandler({ children }) {
   const [visible, setVisible] = React.useState(true);
+  const [atTop, setAtTop] = React.useState(true); // for glass vs transparent
 
-  // true when NOT at the very top
-  const scrolled = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
-
-  const handleScroll = React.useCallback(() => {
-    const currentScrollPos = window.pageYOffset;
-    const isScrollingDown = prevScrollPos < currentScrollPos;
-
-    setPrevScrollPos(currentScrollPos);
-
-    if (isScrollingDown && visible) setVisible(false);
-    else if (!isScrollingDown && !visible) setVisible(true);
-  }, [prevScrollPos, visible]);
+  const lastYRef = React.useRef(
+    typeof window !== 'undefined' ? window.scrollY : 0
+  );
+  const tickingRef = React.useRef(false);
 
   React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    const onScroll = () => {
+      const y = window.scrollY || 0;
+      const diff = y - lastYRef.current;
 
-  // Frosted glass styles when scrolled
-  const glassSx = scrolled
+      if (tickingRef.current) return;
+      tickingRef.current = true;
+
+      requestAnimationFrame(() => {
+        // Always show when at top (or overscrolled negative on iOS)
+        if (y <= 0) {
+          setVisible(true);
+          setAtTop(true);
+        } else {
+          setAtTop(false);
+          // Only react to meaningful deltas to avoid jitter
+          if (Math.abs(diff) > 4) {
+            // show when scrolling up, hide when scrolling down
+            setVisible(diff < 0);
+          }
+        }
+        lastYRef.current = y;
+        tickingRef.current = false;
+      });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Frosted glass when not at top
+  const glassSx = atTop
     ? {
+        background: 'transparent',
+        borderBottom: '1px solid transparent',
+        boxShadow: 'none',
+      }
+    : {
         background: 'rgba(2,0,36,0.55)',
         backdropFilter: 'saturate(140%) blur(10px)',
         WebkitBackdropFilter: 'saturate(140%) blur(10px)',
         borderBottom: '1px solid rgba(255,255,255,0.10)',
         boxShadow:
           '0px 2px 6px rgba(0,0,0,0.18), 0px 8px 24px rgba(0,0,0,0.15)',
-      }
-    : {
-        background: 'transparent',
-        boxShadow: 'none',
-        borderBottom: '1px solid transparent',
       };
 
   return React.cloneElement(children, {
-    elevation: 0, // we control shadow via sx above
+    elevation: 0,
     sx: {
       ...(children.props.sx || {}),
       ...glassSx,
-      transition: 'transform .2s, box-shadow .25s, background .25s, border-color .25s',
+      zIndex: (theme) => theme.zIndex.appBar + 1, // stay on top
+      transition:
+        'transform .22s, box-shadow .25s, background .25s, border-color .25s',
       transform: visible ? 'translateY(0)' : 'translateY(-100%)',
       color: '#fff',
     },
   });
 }
-
 const pages = ['Main', 'About Us', 'Gallery', 'Sponsors', 'Join Us'];
 
 function ResponsiveAppBar() {

@@ -94,8 +94,15 @@ export default function GalleryCarousel() {
       </Box>
 
       {/* Full-width viewport so arrows can sit near the screen edge */}
-      <Box sx={{ position: 'relative', width: '100vw', mx: 'calc(50% - 50vw)' }}>
-        {/* Arrows pushed just outside the viewport gutter */}
+<Box
+   sx={{
+     position: 'relative',
+     // full-bleed without 100vw (avoids scrollbar-width overflow)
+     ml: 'calc(50% - 50dvw)',
+     mr: 'calc(50% - 50dvw)',
+     overflowX: 'clip',  // clip any accidental 1–2px bleed
+   }}
+>        {/* Arrows pushed just outside the viewport gutter */}
         <IconButton
           aria-label="Previous"
           onClick={scrollPrev}
