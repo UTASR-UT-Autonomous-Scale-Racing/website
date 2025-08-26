@@ -75,20 +75,24 @@ function ResponsiveAppBar() {
 
   return (
     <ScrollHandler>
-      <AppBar position="fixed" sx={{ backgroundColor: '#020024' }}>
+      <AppBar
+        position="fixed"
+        sx={(theme) => ({
+          background: 'rgba(2, 0, 36, 0.6)',   // translucent brand blue
+          backdropFilter: 'saturate(120%) blur(8px)',
+          WebkitBackdropFilter: 'saturate(120%) blur(8px)',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          transition: 'background .2s ease, transform .2s ease',
+        })}
+      >
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
-            {/* Logo and Brand - Desktop */}
+          <Toolbar disableGutters sx={{ justifyContent: 'space-between', minHeight: '64px' }}>
+            {/* Logo */}
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <img
                 src={'svg/White logo - no background.svg'}
                 alt="UTASR"
-                style={{
-                  height: '64px',
-                  width: '150px',
-                  marginRight: '8px',
-                  objectFit: 'contain'
-                }}
+                style={{ height: 48, width: 140, objectFit: 'contain' }}
               />
             </Box>
 
@@ -136,25 +140,41 @@ function ResponsiveAppBar() {
             </Box>
 
             {/* Desktop Navigation */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  href={`#${page.toLowerCase().replace(' ', '-')}`}
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    color: 'white',
-                    display: 'block',
-                    textAlign: 'center',
-                    textTransform: 'none',
-                    '&:hover': {
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    },
-                  }}
-                >
-                  {page}
-                </Button>
-              ))}
+              {/* Desktop Navigation */}
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1.5 }}>
+              {pages.map((page) => {
+                const href = `#${page.toLowerCase().replace(' ', '-')}`;
+                return (
+                  <Button
+                    key={page}
+                    href={href}
+                    onClick={handleCloseNavMenu}
+                    disableRipple
+                    sx={{
+                      color: 'white',
+                      textTransform: 'none',
+                      fontWeight: 500,
+                      px: 1.5,
+                      '&:hover': { backgroundColor: 'rgba(255,255,255,0.10)' },
+                      // active underline when link is the current hash
+                      ...(typeof window !== 'undefined' && window.location.hash === href
+                        ? {
+                            '&::after': {
+                              content: '""',
+                              display: 'block',
+                              height: 2,
+                              mt: 0.5,
+                              borderRadius: 1,
+                              background: 'linear-gradient(90deg,#6ea8fe, #b4c6ff)',
+                            },
+                          }
+                        : {}),
+                    }}
+                  >
+                    {page}
+                  </Button>
+                );
+              })}
             </Box>
           </Toolbar>
         </Container>

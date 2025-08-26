@@ -1,25 +1,62 @@
-/* Margins and paddings */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+/* ---------- Base reset ---------- */
+/* keep your reset but remove hard-coded body font family */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; background-color: #020024; }
+body { min-height: 100vh; background-color: #0b1024; overflow-x: hidden; }
 
+
+/* Make anchor jumps land below the fixed AppBar */
+:root {
+    --appbar-height: 64px;
 }
-
-body {
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  background-color: #f0f0f0; /* Fallback background */
-  transition: background-color 0.3s;
-  overflow-x: hidden;
-
-}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 html {
-  scroll-behavior: smooth;
-  background-color: #020024;
+    scroll-padding-top: var(--appbar-height);
+}
+
+/* Text selection tint to match brand */
+::selection {
+    background: rgba(16, 78, 203, 0.25);
+}
+
+/* ---------- Animated gradient helpers ---------- */
+/* Oscillating gradient pan (right then back left) */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-animated {
+  background-size: 300% 300%;
+  animation: gradientShift 15s ease-in-out infinite;
+  will-change: background-position;
+}
+
+/* Brand blue moving gradient */
+.gradient-blue {
+  background-image:
+    radial-gradient(80rem 40rem at 90% -10%, rgba(255, 255, 255, 0.06), transparent 40%),
+    linear-gradient(
+      135deg,
+        #183490 0%,   /* dark royal/navy */
+      #182e6a 40%,  /* deeper indigo/royal */
+      #05070c 100%  /* deep navy (almost black) */
+    );
+  background-position: 0% 50%;
+  color: #fff;
+}
+
+/* Soft section container rhythm */
+.section {
+    padding: clamp(56px, 8vw, 112px) 0;
+}
+
+/* Card hover micro-interaction */
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+}
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
 }

@@ -21,9 +21,10 @@ export const HomePage = () => {
         <div id="about-us">
           <AboutUs />
         </div>
-        <div id="events">
+        {/* <div id="events">
           <Events />
-        </div>
+        </div> */}
+        
         <div id="gallery">
           <Carousel />
         </div>

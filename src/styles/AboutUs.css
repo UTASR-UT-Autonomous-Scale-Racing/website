@@ -30,11 +30,7 @@
  }
 
 
-  .team-member {
-    text-align: center;
-    font-weight: bold;
-    color: rgb(1, 39, 164);
-  }
+.team-member { text-align: center; font-weight: 600; color: #fff; }
   .team-image {
     width: 300px;
     height: 300px;
@@ -53,9 +49,4 @@
     filter: brightness(1.1);
 }
 */
-.about-us {
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    background-color: rgb(143, 217, 251, 0.5);
-}
+.about-us { padding: 20px; text-align: center; font-weight: bold; }

@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       {/* <AppBar /> */}
       <Header />
-      <Carousel />
+        <Carousel />
       <SectionBlock title="Section 1" content="Content for section 1" />
       <SectionBlock title="Section 2" content="Content for section 2" />
       <SectionBlock title="Section 3" content="Content for section 3" />
