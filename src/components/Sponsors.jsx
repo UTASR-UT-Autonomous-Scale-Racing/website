@@ -82,7 +82,7 @@ export const Sponsors = () => {
           sx={{ textAlign: 'center', color: '#fff', opacity: 0.95, maxWidth: 740, mx: 'auto' }}
         >
           Interested in sponsoring UTASR? Contact us to explore opportunities and help drive the future
-          of autonomous technology.
+          of autonomous racing.
         </Typography>
       </SimpleContainer>
     </GradientSection>

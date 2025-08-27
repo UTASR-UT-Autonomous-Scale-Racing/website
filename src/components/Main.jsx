@@ -47,7 +47,7 @@ export const Main = () => {
             </Typography>
             <Typography variant="body1" sx={{ opacity: 0.85, mb: 1.5, lineHeight: 1.7 }}>
               <strong>University of Toronto Autonomous Scale Racing (UTASR)</strong> is a design team focused on
-              developing scalable, learning-based algorithms for RC car control. We emphasize accessible projects,
+              developing scalable, learning-based algorithms for racing. We emphasize accessible projects,
               fast iteration, and real-world testing so members gain practical engineering skills.
             </Typography>
             <Typography variant="body1" sx={{ opacity: 0.85, mb: 1.5, lineHeight: 1.7 }}>
@@ -67,7 +67,7 @@ export const Main = () => {
                 listStyle: 'disc',
               }}
             >
-              <li>Develop cutting-edge AI and robotics solutions.</li>
+              <li>Develop high-performance control strategies for autonomous racing.</li>
               <li>Foster collaboration and learning among students.</li>
               <li>Compete and excel in autonomous racing competitions.</li>
             </Box>

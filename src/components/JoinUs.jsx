@@ -63,7 +63,7 @@ export const JoinUs = () => {
           </Typography>
 
           <Typography variant="body1" sx={{ opacity: 0.8, mt: 1.5 }}>
-            Prefer real-time chat? Join our community on Discord.
+            Join our community.
           </Typography>
 
           <Stack
@@ -114,9 +114,6 @@ export const JoinUs = () => {
 >
   Join the Design Team
 </Button>
-
-
-
             {/* Existing: Discord */}
             <Button
               component={Link}
@@ -141,8 +138,7 @@ export const JoinUs = () => {
             >
               Join our Discord
             </Button>
-
-            {/* Existing: Email */}
+            {/* Existing: Email
             <Button
               component={Link}
               href="mailto:info@utasr.ca"
@@ -163,6 +159,7 @@ export const JoinUs = () => {
             >
               Email Us
             </Button>
+            */}
           </Stack>
         </Box>
       </SimpleContainer>
