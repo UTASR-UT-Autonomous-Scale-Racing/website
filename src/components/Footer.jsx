@@ -11,7 +11,7 @@ import Container from '@mui/material/Container';
 const LINKS = [
   { label: 'Instagram', href: 'https://www.instagram.com/utasr_uoft/?hl=en', external: true },
   { label: 'Discord',   href: 'https://discord.gg/ZzGRqah5hC',                 external: true },
-  { label: 'info@utasr.ca', href: 'mailto:info@utasr.ca', external: false },
+  { label: 'utasrteam@gmail.com', href: 'mailto:utasrteam@gmail.com', external: false },
 ];
 
 function Footer() {

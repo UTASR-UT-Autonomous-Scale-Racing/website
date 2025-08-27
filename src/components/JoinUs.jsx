@@ -48,7 +48,7 @@ export const JoinUs = () => {
           <Typography variant="body1" sx={{ opacity: 0.9, maxWidth: 820, mx: 'auto' }}>
             Have questions? Reach out at{' '}
             <Link
-              href="mailto:info@utasr.ca"
+              href="mailto:utasrteam@gmail.com"
               sx={{
                 color: '#0f172a',
                 fontWeight: 700,
@@ -57,7 +57,7 @@ export const JoinUs = () => {
                 '&:hover': { opacity: 0.8 },
               }}
             >
-              info@utasr.ca
+              utasrteam@gmail.com
             </Link>
             .
           </Typography>
@@ -141,7 +141,7 @@ export const JoinUs = () => {
             {/* Existing: Email
             <Button
               component={Link}
-              href="mailto:info@utasr.ca"
+              href="mailto:.utasrteam@gmail.com"
               variant="outlined"
               sx={{
                 textTransform: 'none',
