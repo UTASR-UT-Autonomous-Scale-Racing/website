@@ -74,7 +74,7 @@ export const JoinUs = () => {
           >
             <Button
               component={Link}
-              href="https://discord.gg/YOUR_DISCORD_LINK"
+              href="https://discord.gg/ZzGRqah5hC"
               target="_blank"
               rel="noopener noreferrer"
               variant="contained"

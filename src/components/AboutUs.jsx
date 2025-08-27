@@ -16,7 +16,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Exec headshots
 import adam from '../assets/adam.jpg';
-import connor from '../assets/Connor_Diao.jpeg';
+import connor from '../assets/Connor_Diao.jpg';
 import daniel from '../assets/Daniel_DeBrun.jpeg';
 import han from '../assets/Han_Hu.jpeg';
 import martin from '../assets/Martin_Shanahan.jpeg';
