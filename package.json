@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:custom-domain": "CUSTOM_DOMAIN=true vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy:custom-domain": "npm run build:custom-domain",
+    "deploy": "gh-pages -d dist",
+    "deploy:custom-domain": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -40,6 +43,6 @@
     "tailwindcss": "^3.4.17",
     "vite": "^6.0.3"
   },
-    "homepage": "https://utasr-ut-autonomous-scale-racing.github.io"
+    "homepage": "https://utasr-ut-autonomous-scale-racing.github.io/website/"
 
 }

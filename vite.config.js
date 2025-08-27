@@ -1,5 +1,10 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/website/',  // Repo name
-});
+  plugins: [react()],
+  base: process.env.CUSTOM_DOMAIN ? '/' : '/website/',
+  build: {
+    outDir: 'dist'
+  }
+})
