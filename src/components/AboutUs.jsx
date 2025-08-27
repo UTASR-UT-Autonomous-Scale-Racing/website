@@ -49,7 +49,7 @@ const EXECS = [
     img: adam,
   },
   {
-    role: 'Finance Director',
+    role: 'Operations Director',
     name: 'Martin Shanahan',
     major: '',
     linkedin: 'https://www.linkedin.com/in/martin-shanahan-961428255/',
