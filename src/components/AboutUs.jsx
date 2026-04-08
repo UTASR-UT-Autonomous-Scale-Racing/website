@@ -45,7 +45,7 @@ const EXECS = [
   },
   {
     role: 'Systems & Infrastructure Lead',
-    name: 'Shengwen Chang',
+    name: 'Shengwen (Wesley) Chang',
     major: '',
     linkedin: 'https://www.linkedin.com/in/shengwenchang/',
     img: shengwen,
