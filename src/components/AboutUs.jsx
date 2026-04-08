@@ -1,26 +1,28 @@
 // AboutUs.jsx
-import React from 'react';
-import SimpleContainer from './SimpleContainer';
 import GradientSection from './GradientSection';
+import SimpleContainer from './SimpleContainer';
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import {
   Box,
-  Typography,
   Card,
   CardContent,
+  Divider,
   IconButton,
   Tooltip,
-  Divider,
+  Typography,
 } from '@mui/material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Exec headshots
 import adam from '../assets/adam.jpg';
 import connor from '../assets/Connor_Diao.jpg';
 import daniel from '../assets/Daniel_DeBrun.jpeg';
 import han from '../assets/Han_Hu.jpeg';
-import martin from '../assets/Martin_Shanahan.jpeg';
 import mahin from '../assets/Mahin_Rahman.jpeg';
+import martin from '../assets/Martin_Shanahan.jpeg';
+import mohamed from '../assets/mohamedebraheem.jpg';
+import rajat from '../assets/rajatarora.jpg';
+import shengwen from '../assets/shengwenchang.jpg';
 import yushu from '../assets/Yushu_Wang.jpeg';
 
 /** ----------------------------------------------------------------
@@ -40,6 +42,34 @@ const EXECS = [
     major: '',
     linkedin: 'https://www.linkedin.com/in/danieldebrun/',
     img: daniel,
+  },
+  {
+    role: 'Systems & Infrastructure Lead',
+    name: 'Shengwen Chang',
+    major: '',
+    linkedin: 'https://www.linkedin.com/in/shengwenchang/',
+    img: shengwen,
+    imgPosition: '95% center',
+  },
+  {
+    role: 'Reinforcement Learning Lead',
+    name: 'Rajat Arora',
+    major: '',
+    linkedin: 'https://www.linkedin.com/in/rajat-arora-3a1a48161/',
+    img: rajat,
+    imgPosition: 'center 12%',
+    imgScale: 1.62,
+    imgOrigin: 'center top',
+  },
+  {
+    role: 'Web Development Lead',
+    name: 'Mohamed Ebraheem',
+    major: '',
+    linkedin: 'https://www.linkedin.com/in/mohamedebr/',
+    img: mohamed,
+    imgPosition: 'center 10%',
+    imgScale: 1.34,
+    imgOrigin: 'center top',
   },
   {
     role: 'Hardware Team Lead',
@@ -79,7 +109,17 @@ const EXECS = [
 ];
 
 /** Small presentational card for each exec (fixed size, centered grid uses these) */
-function ExecCard({ role, name, major, linkedin, img, sx }) {
+function ExecCard({
+  role,
+  name,
+  major,
+  linkedin,
+  img,
+  imgPosition = 'center',
+  imgScale = 1,
+  imgOrigin = 'center',
+  sx,
+}) {
   return (
     <Card
       className="hover-lift"
@@ -98,14 +138,15 @@ function ExecCard({ role, name, major, linkedin, img, sx }) {
       }}
     >
       {/* Image area grows to fill */}
-      <Box
-        sx={{
-          position: 'relative',
-          flexGrow: 1,
-          minHeight: 220,
-          backgroundColor: 'rgba(255,255,255,0.03)',
-        }}
-      >
+        <Box
+          sx={{
+            position: 'relative',
+            flexGrow: 1,
+            minHeight: 220,
+            overflow: 'hidden',
+            backgroundColor: 'rgba(255,255,255,0.03)',
+          }}
+        >
         <Box
           component="img"
           src={img}
@@ -116,6 +157,9 @@ function ExecCard({ role, name, major, linkedin, img, sx }) {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            objectPosition: imgPosition,
+            transform: `scale(${imgScale})`,
+            transformOrigin: imgOrigin,
             filter: 'saturate(0.95) contrast(1.02)',
           }}
         />
